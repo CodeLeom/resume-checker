@@ -1,5 +1,5 @@
 
-function Loader() {
+function Spinner() {
   return (
     <>
         <div className="custom-loader"></div>
@@ -7,4 +7,4 @@ function Loader() {
   )
 }
 
-export default Loader
+export default Spinner
