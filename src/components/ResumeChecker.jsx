@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import Spinner from './layout/Spinner';
 
 function ResumeChecker() {
@@ -66,7 +65,8 @@ function ResumeChecker() {
   return (
     <div className="container">
       <h1>Resume Checker</h1>
-      <form onSubmit={handleSubmit}>
+      <div className="card">
+        <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter job description"
@@ -81,8 +81,10 @@ function ResumeChecker() {
           required
         />
         <button type="submit">Check Resume</button>
-      </form>
-      {loading ? <Spinner /> : result && <p>{result}</p>}
+        </form>
+      </div>
+      
+      {loading ? (<div className='loading-overlay'><Spinner /></div>) : result && <p>{result}</p>}
     </div>
   );
 }
