@@ -63,28 +63,35 @@ function ResumeChecker() {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
       <h1>Resume Checker</h1>
-      <div className="card">
+      <div className='card'>
         <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter job description"
-          value={jobDescription}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={handleFileChange}
-          required
-        />
-        <button type="submit">Check Resume</button>
+          <textarea
+            placeholder='Enter job description'
+            value={jobDescription}
+            row={6}
+            onChange={handleInputChange}
+            className='prompt-input'
+            required
+          />
+          <input
+            type='file'
+            accept='.pdf'
+            onChange={handleFileChange}
+            required
+          />
+          <button type='submit'>Check Resume</button>
         </form>
       </div>
-      
-      {loading ? (<div className='loading-overlay'><Spinner /></div>) : result && <p>{result}</p>}
+
+      {loading ? (
+        <div className='loading-overlay'>
+          <Spinner />
+        </div>
+      ) : (
+        result && <p>{result}</p>
+      )}
     </div>
   );
 }
